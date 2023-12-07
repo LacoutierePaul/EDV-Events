@@ -13,7 +13,8 @@ export class Member extends Model {
 export class Event extends Model {
     declare eventId: number;
     declare eventTitle: string;
-    declare eventPlace: string;
+    declare eventType: string;
+    declare eventLocation: string;
     declare eventDescription?: string;
     declare eventDate: Date;
     declare eventLimit: number;
