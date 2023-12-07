@@ -16,3 +16,5 @@ app.get("/api/test", (req: Request, res: Response) => {
     res.send("Salut !");
 });
 
+// Participation endpoints
+
