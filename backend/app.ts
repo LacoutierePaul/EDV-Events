@@ -16,3 +16,4 @@ app.get("/api/test", (req: Request, res: Response) => {
     res.send("Salut !");
 });
 
+// Members endpoints
