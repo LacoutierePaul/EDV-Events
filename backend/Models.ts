@@ -24,6 +24,12 @@ export class Participation extends Model {
     declare memberId: number;
 }
 
+export enum EventType {
+    Tournament,
+    Training,
+    Event
+}
+
 export enum Schools {
     ESILV,
     IIM,
