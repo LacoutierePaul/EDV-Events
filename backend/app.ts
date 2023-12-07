@@ -12,9 +12,7 @@ app.listen(3000, () => {
 connectDb();
 createTables().then(r => {});
 
-app.get("/api/test", (req: Request, res: Response) => {
-    res.send("Salut !");
-});
+
 
 // Members endpoints
 app.get("/api/members",async(req:Request,res:Response)=> {
@@ -47,7 +45,7 @@ app.get('/api/members/:id', async (req, res) => {
             res.status(404).send('Member not found for ID: ' );
         }
     } catch (error) {
-        res.status(500).send({error :"Internal server error"});
+        res.status(500).send("Internal server error");
     }
 });
 
@@ -80,7 +78,7 @@ app.delete('/api/members/:id', async (req, res) => {
             res.status(404).send('Member not found for ID: ' + id);
         }
     } catch (error) {
-        res.status(500).send("Internal server error");
+        res.status(500).send("Wrong id parameter format");
     }
 });
 
@@ -98,10 +96,10 @@ app.put('/api/members',async(req,res) => {
             res.status(200).send(member);
         } else {
             // Renvoyez une réponse 404 si le package n'a pas été trouvé
-            res.status(404).send({error: 'Memner entity not found for ID: ' + id});
+            res.status(404).send( 'Member entity not found for ID: ' + id);
         }
     } catch (error) {
-        res.status(500).send({error :"Internal server error"});
+        res.status(500).send("Wrong id parameter format");
     }
 });
 
