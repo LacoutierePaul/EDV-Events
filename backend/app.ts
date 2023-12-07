@@ -2,6 +2,8 @@ import * as express from 'express';
 import { Request, Response} from 'express';
 import { connectDb, createTables } from './DbManager';
 import {Member, Event, Participation, Schools, EventType} from "./Models";
+import swaggerJsdoc=require('swagger-jsdoc')
+import swaggerUi=require("swagger-ui-express")
 
 const app = express()
 app.use(express.json())
@@ -13,8 +15,140 @@ connectDb();
 createTables().then(r => {});
 
 
+//swagger
+
+const jsDocOptions = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'Express API with swagger',
+            version: '1.0.0',
+            description: 'Documentation for express API with swagger',
+        },
+        components: {
+            schemas: {
+                Member: {
+                    type: 'object',
+                    properties: {
+                        memberId: {
+                            type: 'number',
+                        },
+                        memberLastName: {
+                            type: 'string',
+                        },
+                        memberFirstName: {
+                            type: 'string',
+                        },
+                        memberEmail: {
+                            type: 'string',
+                        },
+                        memberPassword: {
+                            type: 'string',
+                        },
+                        memberSchool: {
+                            type: 'string',
+                            enum: ['ESILV', 'IIM', 'EMLV'],
+                        },
+                        isAdmin: {
+                            type: 'boolean',
+                        },
+                    },
+                },
+                Event: {
+                    type: 'object',
+                    properties: {
+                        eventId: {
+                            type: 'number',
+                        },
+                        eventType: {
+                            type: 'string',
+                            enum: ['Tournament', 'Training', 'Event'],
+                        },
+                        eventTitle: {
+                            type: 'string',
+                        },
+                        eventPlace: {
+                            type: 'string',
+                        },
+                        eventDescription: {
+                            type: 'string',
+                        },
+                        eventDate: {
+                            type: 'string',
+                            format:"date",
+                        },
+                        eventLimit: {
+                            type: 'number',
+                        },
+                    },
+                },
+                Participation: {
+                    type: 'object',
+                    properties: {
+                        eventId: {
+                            type: 'number',
+                        },
+                        memberId: {
+                            type: 'number',
+                        },
+                    },
+                },
+                MemberNoId: {
+                    type: 'object',
+                    properties: {
+                        memberLastName: {
+                            type: 'string',
+                        },
+                        memberFirstName: {
+                            type: 'string',
+                        },
+                        memberEmail: {
+                            type: 'string',
+                        },
+                        memberPassword: {
+                            type: 'string',
+                        },
+                        memberSchool: {
+                            type: 'string',
+                            enum: ['ESILV', 'IIM', 'EMLV'],
+                        },
+                        isAdmin: {
+                            type: 'boolean',
+                        },
+                    },
+                },
+            },
+        },
+    },
+    apis: ['app.js'],
+};
+
+
+const apiDoc=swaggerJsdoc(jsDocOptions)
+console.log('api-doc json',JSON.stringify(apiDoc,null,2))
+app.use('/swagger-ui',swaggerUi.serve,swaggerUi.setup(apiDoc))
 
 // Members endpoints
+
+/**
+ * @openapi
+ * /api/members:
+ *   get:
+ *     summary: Get all member.
+ *     description: Get all members.
+ *     responses:
+ *       '200':
+ *         description: An array of members.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Member'
+ *       '500':
+ *         description: Could not query the database
+ *
+ */
 app.get("/api/members",async(req:Request,res:Response)=> {
     try {
         const users=await Member.findAll();
@@ -27,7 +161,32 @@ app.get("/api/members",async(req:Request,res:Response)=> {
     }
 })
 
-
+/**
+ * @openapi
+ * /api/members/{id}:
+ *   get:
+ *     summary: Get a member by ID.
+ *     description: Retrieve a member based on its ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: ID of the member to retrieve.
+ *         required: true
+ *         schema:
+ *           type: number
+ *     responses:
+ *       '200':
+ *         description: The member with the specified ID.
+ *         content:
+ *             application/json:
+ *               schema:
+ *                 $ref: '#/components/schemas/Member'
+ *       '404':
+ *         description: member not found with the specified ID.
+ *       '500':
+ *         description: Internal server error
+ *
+ */
 app.get('/api/members/:id', async (req, res) => {
     try {
         const id = +req.params.id;
@@ -49,6 +208,29 @@ app.get('/api/members/:id', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /api/members:
+ *   post:
+ *     summary: Create a new member.
+ *     description: Create a new member with the provided data.
+ *     requestBody:
+ *       description: Member data to be created.
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/MemberNoId'
+ *     responses:
+ *       '200':
+ *         description: The newly created member.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Member'
+ *       '500':
+ *         description: Internal Server Error
+ */
 app.post('/api/members',async(req: Request, res: Response) => {
     try {
         const newMember = await Member.create(req.body);
@@ -60,7 +242,31 @@ app.post('/api/members',async(req: Request, res: Response) => {
     }
 });
 
-
+/**
+ * @openapi
+ * /api/members/{id}:
+ *   delete:
+ *     summary: Delete a member by ID.
+ *     description: Delete a member based on its ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: ID of the member to delete.
+ *         required: true
+ *         schema:
+ *           type: number
+ *     responses:
+ *       '200':
+ *         description: This member has been deleted.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Member'
+ *       '404':
+ *         description: Member not found with the specified ID.
+ *       '500':
+ *         description: Wrong id parameter format
+ */
 app.delete('/api/members/:id', async (req, res) => {
     try {
         const id = +req.params.id;
@@ -82,6 +288,32 @@ app.delete('/api/members/:id', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /api/members:
+ *   put:
+ *     summary: Update a member.
+ *     description: Update a member with the provided data.
+ *     requestBody:
+ *       description: Member data to be updated.
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Member'
+ *     responses:
+ *       '200':
+ *         description: Updated Member.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Member'
+ *       '404':
+ *         description: Member Entity Not found for this id
+ *       '500':
+ *         description: Wrong id parameter format
+ *
+ */
 app.put('/api/members',async(req,res) => {
     try {
         const id = +req.body.memberId;
@@ -102,10 +334,3 @@ app.put('/api/members',async(req,res) => {
         res.status(500).send("Wrong id parameter format");
     }
 });
-
-
-
-
-
-
-
