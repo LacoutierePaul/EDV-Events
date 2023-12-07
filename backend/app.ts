@@ -47,7 +47,7 @@ app.post("/api/events", async (req: Request, res: Response) => {
     }
 });
 
-app.put("/api/events/:id", async (req: Request, res: Response) => {
+app.put("/api/events", async (req: Request, res: Response) => {
     try {
         const id = +req.body.eventId;
         const event: Event = await Event.findOne({
