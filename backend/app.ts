@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { Request, Response} from 'express';
-import {connectDb, createTables} from './DbManager';
-
+import { connectDb, createTables } from './DbManager';
+import {Member, Event, Participation, Schools, EventType} from "./Models";
 
 const app = express()
 app.use(express.json())
