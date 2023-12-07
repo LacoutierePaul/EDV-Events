@@ -6,7 +6,7 @@ const app = express()
 app.use(express.json())
 
 app.get("/api/test", (req: Request, res: Response) => {
-    res.send("Ok !");
+    res.send("Salut !");
 });
 
 app.listen(3000, () => {
