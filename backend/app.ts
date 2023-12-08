@@ -67,7 +67,7 @@ const jsDocOptions = {
                         eventTitle: {
                             type: 'string',
                         },
-                        eventPlace: {
+                        eventLocation: {
                             type: 'string',
                         },
                         eventDescription: {
@@ -195,31 +195,6 @@ app.get('/api/members/:id', async (req, res) => {
         const member = await Member.findOne({
             where: { memberId: id }
         });
-app.get("/api/events", async (req: Request, res: Response) => {
-    try {
-        let events: Event[] = await Event.findAll();
-        res.status(200).send(events);
-    } catch(error){
-        res.status(500).send("Could not query the database");
-    }
-});
-
-app.get("/api/events/:id", async (req: Request, res: Response) => {
-    try{
-        let id = +req.params.id;
-        let event: Event = await Event.findOne({
-            where: {eventId: id}
-        });
-
-        if(event){
-            res.status(200).send(event);
-        } else {
-            res.status(404).send("Event not found");
-        }
-    } catch(error) {
-        res.status(500).send("Wrong id parameter format");
-    }
-});
 
         if (member) {
             // Renvoyez le package d'apprentissage en tant que réponse JSON
@@ -359,6 +334,34 @@ app.put('/api/members',async(req,res) => {
         res.status(500).send("Wrong id parameter format");
     }
 });
+
+
+app.get("/api/events", async (req: Request, res: Response) => {
+    try {
+        let events: Event[] = await Event.findAll();
+        res.status(200).send(events);
+    } catch(error){
+        res.status(500).send("Could not query the database");
+    }
+});
+
+app.get("/api/events/:id", async (req: Request, res: Response) => {
+    try{
+        let id = +req.params.id;
+        let event: Event = await Event.findOne({
+            where: {eventId: id}
+        });
+
+        if(event){
+            res.status(200).send(event);
+        } else {
+            res.status(404).send("Event not found");
+        }
+    } catch(error) {
+        res.status(500).send("Wrong id parameter format");
+    }
+});
+
 app.post("/api/events", async (req: Request, res: Response) => {
     try {
         const newEvent= await Event.create(req.body);
