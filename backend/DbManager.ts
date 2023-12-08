@@ -1,12 +1,19 @@
 import {DataTypes, Sequelize} from 'sequelize';
 import {Member, Event, Participation, Schools} from "./Models";
+import * as fs from "fs";
+require('dotenv').config();
 
-const sequelize = new Sequelize({
-    dialect: 'postgres', // or any other supported database
-    host: 'localhost',
-    username: 'edvDbUser',
-    password: 'root',
-    database: 'edvDb',
+
+const sequelize = new Sequelize(process.env.DATABASE_NAME,process.env.DATABASE_USERNAME, process.env.DATABASE_PASSWORD, {
+    host: process.env.DATABASE_HOST,
+    dialect: 'postgres',
+    port: parseInt(process.env.DATABASE_PORT),
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: true,
+            ca: fs.readFileSync("./ca.pem").toString()
+        }
+    }
 });
 
 export function connectDb() : void {
