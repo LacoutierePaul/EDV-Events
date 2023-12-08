@@ -14,7 +14,6 @@ export class Event extends Model {
     declare eventId: number;
     declare eventType:string;
     declare eventTitle: string;
-    declare eventType: string;
     declare eventLocation: string;
     declare eventDescription?: string;
     declare eventDate: Date;
