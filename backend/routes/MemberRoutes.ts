@@ -1,11 +1,7 @@
 import * as express from 'express';
 import { Request, Response} from 'express';
 import {Member} from "../Models";
-/*
-import swaggerJsdoc=require('swagger-jsdoc')
-import swaggerUi=require("swagger-ui-express")
-import { jsDocOptions } from "../app";
-*/
+
 const memberRoutes = express.Router();
 
 
@@ -15,6 +11,8 @@ const memberRoutes = express.Router();
  *   get:
  *     summary: Get all member.
  *     description: Get all members.
+ *     tags:
+ *       - Members
  *     responses:
  *       '200':
  *         description: An array of members.
@@ -46,6 +44,8 @@ memberRoutes.get("/api/members",async(req:Request,res:Response)=> {
  *   get:
  *     summary: Get a member by ID.
  *     description: Retrieve a member based on its ID.
+ *     tags:
+ *       - Members
  *     parameters:
  *       - in: path
  *         name: id
@@ -93,6 +93,8 @@ memberRoutes.get('/api/members/:id', async (req, res) => {
  *   post:
  *     summary: Create a new member.
  *     description: Create a new member with the provided data.
+ *     tags:
+ *       - Members
  *     requestBody:
  *       description: Member data to be created.
  *       required: true
@@ -127,6 +129,8 @@ memberRoutes.post('/api/members',async(req: Request, res: Response) => {
  *   delete:
  *     summary: Delete a member by ID.
  *     description: Delete a member based on its ID.
+ *     tags:
+ *       - Members
  *     parameters:
  *       - in: path
  *         name: id
@@ -173,6 +177,8 @@ memberRoutes.delete('/api/members/:id', async (req, res) => {
  *   put:
  *     summary: Update a member.
  *     description: Update a member with the provided data.
+ *     tags:
+ *       - Members
  *     requestBody:
  *       description: Member data to be updated.
  *       required: true
