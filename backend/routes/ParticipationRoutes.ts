@@ -37,7 +37,7 @@ participationRoutes.get("/api/participations", async (req: Request, res: Respons
 
 /**
  * @openapi
- * /api/participations/{eventId}:
+ * /api/participations/events/{eventId}:
  *   get:
  *     summary: Get participations with event ID.
  *     description: Retrieve all participations based on event ID.
@@ -65,7 +65,7 @@ participationRoutes.get("/api/participations", async (req: Request, res: Respons
  *         description: Internal server error
  *
  */
-participationRoutes.get("/api/participations/:eventId", async (req: Request, res: Response) => {
+participationRoutes.get("/api/participations/events/:eventId", async (req: Request, res: Response) => {
     try{
         let id = +req.params.eventId;
         let participations: Participation[] = await Participation.findAll({
@@ -84,7 +84,7 @@ participationRoutes.get("/api/participations/:eventId", async (req: Request, res
 
 /**
  * @openapi
- * /api/participations/{memberId}:
+ * /api/participations/members/{memberId}:
  *   get:
  *     summary: Get participations with member ID.
  *     description: Retrieve all participations  of a member based on his ID.
@@ -112,7 +112,7 @@ participationRoutes.get("/api/participations/:eventId", async (req: Request, res
  *         description: Internal server error
  *
  */
-participationRoutes.get("/api/participations/:memberId", async (req: Request, res: Response) => {
+participationRoutes.get("/api/participations/members/:memberId", async (req: Request, res: Response) => {
     try{
         let id = +req.params.memberId;
         let participations: Participation[] = await Participation.findAll({
@@ -166,7 +166,7 @@ participationRoutes.post("/api/participations", async (req: Request, res: Respon
 
 /**
  * @openapi
- * /api/participations/{eventId}:
+ * /api/participations/events/{eventId}:
  *   delete:
  *     summary: Delete all participation for an event.
  *     description: Delete all participation for the event id.
@@ -187,7 +187,7 @@ participationRoutes.post("/api/participations", async (req: Request, res: Respon
  *       '500':
  *         description: Wrong id parameter format
  */
-participationRoutes.delete("/api/participations/:eventId", async (req: Request, res: Response) => {
+participationRoutes.delete("/api/participations/events/:eventId", async (req: Request, res: Response) => {
     try {
         const id = +req.params.eventId;
         await Participation.destroy({
@@ -201,7 +201,7 @@ participationRoutes.delete("/api/participations/:eventId", async (req: Request, 
 
 /**
  * @openapi
- * /api/participations/{memberId}:
+ * /api/participations/members/{memberId}:
  *   delete:
  *     summary: Delete all participation for a member.
  *     description: Delete all participation for the member id.
@@ -222,7 +222,7 @@ participationRoutes.delete("/api/participations/:eventId", async (req: Request, 
  *       '500':
  *         description: Wrong id parameter format
  */
-participationRoutes.delete("/api/participations/:memberId", async (req: Request, res: Response) => {
+participationRoutes.delete("/api/participations/members/:memberId", async (req: Request, res: Response) => {
     try {
         const id = +req.params.memberId;
         await Participation.destroy({
