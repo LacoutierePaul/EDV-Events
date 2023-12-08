@@ -85,6 +85,7 @@ export async function createTables(){
     Participation.init({
         eventId: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             references: {
                 model: Event,
                 key: 'eventId'
@@ -92,6 +93,7 @@ export async function createTables(){
         },
         memberId: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             references: {
                 model: Member,
                 key: 'memberId'
