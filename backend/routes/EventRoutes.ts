@@ -17,7 +17,7 @@ const eventRoutes = express.Router();
  *       '200':
  *         description: An array of events.
  *         content:
- *           json:
+ *           application/json:
  *             schema:
  *               type: array
  *               items:
@@ -55,7 +55,7 @@ eventRoutes.get("/api/events", async (req: Request, res: Response) => {
  *       '200':
  *         description: The event with the specified ID.
  *         content:
- *             json:
+ *             application/json:
  *               schema:
  *                 $ref: '#/components/schemas/Event'
  *       '404':
@@ -94,14 +94,14 @@ eventRoutes.get("/api/events/:id", async (req: Request, res: Response) => {
  *       description: Event data to be created.
  *       required: true
  *       content:
- *         json:
+ *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/EventNoId'
  *     responses:
  *       '200':
  *         description: The newly created event.
  *         content:
- *           json:
+ *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Event'
  *       '500':
@@ -129,14 +129,14 @@ eventRoutes.post("/api/events", async (req: Request, res: Response) => {
  *       description: Event data to be updated.
  *       required: true
  *       content:
- *         json:
+ *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/Event'
  *     responses:
  *       '200':
  *         description: Updated Event.
  *         content:
- *           json:
+ *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Event'
  *       '404':
@@ -184,7 +184,7 @@ eventRoutes.put("/api/events", async (req: Request, res: Response) => {
  *       '200':
  *         description: This event has been deleted.
  *         content:
- *           json:
+ *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Event'
  *       '404':

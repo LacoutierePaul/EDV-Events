@@ -17,7 +17,7 @@ const participationRoutes = express.Router();
  *       '200':
  *         description: An array of participation.
  *         content:
- *           json:
+ *           application/json:
  *             schema:
  *               type: array
  *               items:
@@ -54,7 +54,7 @@ participationRoutes.get("/api/participations", async (req: Request, res: Respons
  *       '200':
  *         description: The participations with the specified event ID.
  *         content:
- *             json:
+ *             application/json:
  *               schema:
  *                 type: array
  *                 items:
@@ -101,7 +101,7 @@ participationRoutes.get("/api/participations/:eventId", async (req: Request, res
  *       '200':
  *         description: The participations of the member with the specified ID.
  *         content:
- *             json:
+ *             application/json:
  *               schema:
  *                 type: array
  *                 items:
@@ -141,14 +141,14 @@ participationRoutes.get("/api/participations/:memberId", async (req: Request, re
  *       description: participation data to be created.
  *       required: true
  *       content:
- *         json:
+ *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/Participation'
  *     responses:
  *       '200':
  *         description: The newly created participation.
  *         content:
- *           json:
+ *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Participation'
  *       '500':
