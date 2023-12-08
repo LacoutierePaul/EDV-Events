@@ -1,11 +1,7 @@
 import * as express from 'express';
 import { Request, Response} from 'express';
 import {Member} from "../Models";
-/*
-import swaggerJsdoc=require('swagger-jsdoc')
-import swaggerUi=require("swagger-ui-express")
-import { jsDocOptions } from "../app";
-*/
+
 const memberRoutes = express.Router();
 
 
