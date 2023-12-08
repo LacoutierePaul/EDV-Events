@@ -136,7 +136,7 @@ const jsDocOptions = {
             },
         },
     },
-    apis: ['app.js', './routes/MemberRoutes.js', './routes/EventRoutes.js'],
+    apis: ['app.js', './routes/MemberRoutes.js', './routes/EventRoutes.js','./routes/ParticipationRoutes.js'],
 };
 
 const apiDoc = swaggerJsdoc(jsDocOptions);
