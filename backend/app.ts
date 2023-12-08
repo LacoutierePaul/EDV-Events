@@ -73,6 +73,31 @@ const jsDocOptions = {
                         },
                     },
                 },
+                EventNoId: {
+                    type: 'object',
+                    properties: {
+                        eventType: {
+                            type: 'string',
+                            enum: ['Tournament', 'Training', 'Event'],
+                        },
+                        eventTitle: {
+                            type: 'string',
+                        },
+                        eventLocation: {
+                            type: 'string',
+                        },
+                        eventDescription: {
+                            type: 'string',
+                        },
+                        eventDate: {
+                            type: 'string',
+                            format:"date",
+                        },
+                        eventLimit: {
+                            type: 'number',
+                        },
+                    },
+                },
                 Participation: {
                     type: 'object',
                     properties: {
