@@ -190,9 +190,18 @@ participationRoutes.post("/api/participations", async (req: Request, res: Respon
 participationRoutes.delete("/api/participations/events/:eventId", async (req: Request, res: Response) => {
     try {
         const id = +req.params.eventId;
-        await Participation.destroy({
+        const Number = await Participation.destroy({
             where: {eventId: id}
         });
+        if(Number==0)
+        {
+            res.status(404).send("No participation found on this id")
+        }
+        else
+        {
+            res.status(200).send("We deleted : "+Number + "participations")
+        }
+
     } catch (error) {
         res.status(500).send("Wrong id parameter format");
     }
@@ -225,9 +234,17 @@ participationRoutes.delete("/api/participations/events/:eventId", async (req: Re
 participationRoutes.delete("/api/participations/members/:memberId", async (req: Request, res: Response) => {
     try {
         const id = +req.params.memberId;
-        await Participation.destroy({
+        const Number=await Participation.destroy({
             where: {memberId: id}
         });
+        if(Number==0)
+        {
+            res.status(404).send("No participation found on this id")
+        }
+        else
+        {
+            res.status(200).send("We deleted : "+Number + "participations")
+        }
     } catch (error) {
         res.status(500).send("Wrong id parameter format");
     }
@@ -269,12 +286,21 @@ participationRoutes.delete("/api/participations/:memberId/:eventId", async (req:
     try {
         const memberId = +req.params.memberId;
         const eventId = +req.params.eventId;
-        await Participation.destroy({
+        const Number=await Participation.destroy({
             where: {
                 memberId: memberId,
                 eventId: eventId
             }
         });
+        if(Number==0)
+        {
+            res.status(404).send("No participation found on those id")
+        }
+        else
+        {
+            res.status(200).send("We deleted this participation")
+        }
+
     } catch (error) {
         res.status(500).send("Wrong id parameter format");
     }
