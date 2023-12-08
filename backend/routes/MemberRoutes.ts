@@ -19,7 +19,7 @@ const memberRoutes = express.Router();
  *       '200':
  *         description: An array of members.
  *         content:
- *           memberRouteslication/json:
+ *           json:
  *             schema:
  *               type: array
  *               items:
@@ -57,7 +57,7 @@ memberRoutes.get("/api/members",async(req:Request,res:Response)=> {
  *       '200':
  *         description: The member with the specified ID.
  *         content:
- *             memberRouteslication/json:
+ *             json:
  *               schema:
  *                 $ref: '#/components/schemas/Member'
  *       '404':
@@ -97,14 +97,14 @@ memberRoutes.get('/api/members/:id', async (req, res) => {
  *       description: Member data to be created.
  *       required: true
  *       content:
- *         memberRouteslication/json:
+ *         json:
  *           schema:
  *             $ref: '#/components/schemas/MemberNoId'
  *     responses:
  *       '200':
  *         description: The newly created member.
  *         content:
- *           memberRouteslication/json:
+ *           json:
  *             schema:
  *               $ref: '#/components/schemas/Member'
  *       '500':
@@ -138,7 +138,7 @@ memberRoutes.post('/api/members',async(req: Request, res: Response) => {
  *       '200':
  *         description: This member has been deleted.
  *         content:
- *           memberRouteslication/json:
+ *           json:
  *             schema:
  *               $ref: '#/components/schemas/Member'
  *       '404':
@@ -177,14 +177,14 @@ memberRoutes.delete('/api/members/:id', async (req, res) => {
  *       description: Member data to be updated.
  *       required: true
  *       content:
- *         memberRouteslication/json:
+ *         json:
  *           schema:
  *             $ref: '#/components/schemas/Member'
  *     responses:
  *       '200':
  *         description: Updated Member.
  *         content:
- *           memberRouteslication/json:
+ *           json:
  *             schema:
  *               $ref: '#/components/schemas/Member'
  *       '404':
