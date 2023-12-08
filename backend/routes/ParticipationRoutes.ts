@@ -175,7 +175,7 @@ participationRoutes.post("/api/participations", async (req: Request, res: Respon
  *     parameters:
  *       - in: path
  *         name: eventId
- *         description: ID of the event.
+ *         description: ID of the event where all participations will be deleted.
  *         required: true
  *         schema:
  *           type: number
@@ -210,7 +210,7 @@ participationRoutes.delete("/api/participations/:eventId", async (req: Request, 
  *     parameters:
  *       - in: path
  *         name: memberId
- *         description: ID of the member .
+ *         description: ID of the member where all participations will be deleted.
  *         required: true
  *         schema:
  *           type: number
@@ -246,12 +246,13 @@ participationRoutes.delete("/api/participations/:memberId", async (req: Request,
  *     parameters:
  *       - in: path
  *         name: memberId
- *         description: ID of the member .
+ *         description: ID of the member to delete.
  *         required: true
  *         schema:
  *           type: number
- *         name:eventId
- *         description: id of the event
+ *       - in: path
+ *         name: eventId
+ *         description: ID of the event to delete.
  *         required: true
  *         schema:
  *           type: number
