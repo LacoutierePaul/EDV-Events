@@ -1,0 +1,18 @@
+<div class="connection-reg-holder">
+  <app-connection-form *ngIf="showConnect"></app-connection-form>
+  <app-register-form *ngIf="showRegister"></app-register-form>
+  <p class="already-account" *ngIf="showRegister">
+    Vous avez déjà un compte ?
+    <a class="already-account" (click)="switchForms()" style="cursor: pointer; color: purple">
+      <u>Se connecter</u>
+    </a>
+  </p>
+  <a class="already-register"
+     *ngIf="showConnect"
+     (click)="switchForms()"
+     style="cursor: pointer; color: purple"
+  >
+    <u>S'inscrire</u>
+  </a>
+
+</div>
