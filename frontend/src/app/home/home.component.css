@@ -1,0 +1,25 @@
+.home {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 130px;
+}
+
+.informations {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  max-width: 800px;
+  color: white;
+}
+
+.asso-name {
+  font-size: 40px;
+}
+
+.description {
+  font-weight: bold;
+  font-size: 20px;
+}
