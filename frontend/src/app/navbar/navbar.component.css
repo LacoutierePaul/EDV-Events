@@ -1,0 +1,53 @@
+.header {
+    width: 100%;
+    margin-top: 30px;
+    height: 72px;
+    left: 0;
+    top: 10px; /* Adjust the top margin as needed */
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 2%; /* Adjust as needed */
+}
+
+.nav-accessible-item {
+    width: 100%; /* Adjust as needed */
+    max-width: 200px; /* Set a maximum width for larger screens */
+    height: 38px;
+    text-align: center;
+    color: white;
+    font-size: 1.5vw; /* Responsive font size based on viewport width */
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+.nav-item {
+  width: 100%; /* Adjust as needed */
+  max-width: 200px; /* Set a maximum width for larger screens */
+  height: 38px;
+  text-align: center;
+  color: black;
+  font-size: 1.5vw; /* Responsive font size based on viewport width */
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 700;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+
+.accessible-menus {
+  display: flex;
+  justify-content: space-around;
+  column-gap: 70px;
+}
+
+.nav-accessible-item:hover{
+  border-bottom: 3px solid white; /* Add a white bottom border on hover */
+}
+
+.nav-item:hover{
+  border-bottom: 3px solid black;
+}
