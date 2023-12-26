@@ -13,6 +13,7 @@ import { ConnectionPageComponent } from './connection-page/connection-page.compo
 import { ConnectionFormComponent } from './connection-form/connection-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        BrowserAnimationsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
