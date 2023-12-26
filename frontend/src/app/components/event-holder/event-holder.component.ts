@@ -22,7 +22,4 @@ export class EventHolderComponent {
   }
 
   constructor(private httpClient: HttpClient){}
-
-
-
 }
