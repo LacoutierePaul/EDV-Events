@@ -1,0 +1,39 @@
+<div class="create-event">
+  <div class="create-event-form" [formGroup]="createEventForm">
+    <h1 style="font-weight: 500">Créer un nouvel événement</h1>
+    <mat-form-field>
+      <mat-label>Type d'événement</mat-label>
+      <mat-select formControlName="eventType">
+        <mat-option value="Tournament">Tournoi</mat-option>
+        <mat-option value="Training">Entraînement</mat-option>
+        <mat-option value="Event">Autre</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nom de l'événement</mat-label>
+      <input matInput formControlName="eventTitle">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Lieu</mat-label>
+      <input matInput formControlName="eventLocation">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="eventDescription"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="eventDate">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nombre de places</mat-label>
+      <input matInput type="number" formControlName="eventLimit">
+    </mat-form-field>
+    <button mat-raised-button color="primary" style="width: 100%" (click)="createEvent()"
+            [disabled]="!createEventForm.valid">
+      Valider
+    </button>
+  </div>
+</div>
