@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { EventsComponent } from './pages/events/events.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PresentationComponent } from './pages/presentation/presentation.component';
 import { TournamentsComponent } from './pages/tournaments/tournaments.component';
@@ -17,12 +16,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventHolderComponent } from './components/event-holder/event-holder.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
+import { OtherEventsComponent } from './pages/other-events/other-events.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    EventsComponent,
     HomeComponent,
     PresentationComponent,
     TournamentsComponent,
@@ -30,7 +29,8 @@ import {MatButtonModule} from "@angular/material/button";
     ConnectionPageComponent,
     ConnectionFormComponent,
     RegisterFormComponent,
-    EventHolderComponent
+    EventHolderComponent,
+    OtherEventsComponent
   ],
   imports: [
     BrowserModule,
