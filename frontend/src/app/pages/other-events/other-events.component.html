@@ -1,1 +1,7 @@
-<p>other-events works!</p>
+<div class="events">
+  <div class="event-list">
+    <h1 class="upcoming-other-events">Autres événements</h1>
+    <app-event-holder *ngFor="let otherEvent of otherEventsList" [event]="otherEvent"></app-event-holder>
+  </div>
+  <img src="../../../assets/joueur_foot.png" style="max-width: 100%; max-height: 100%">
+</div>
