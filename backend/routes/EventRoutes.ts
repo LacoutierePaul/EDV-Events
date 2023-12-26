@@ -1,6 +1,7 @@
 import * as express from 'express';
 import { Request, Response} from 'express';
 import {Event, EventType} from "../Models";
+import {Op} from "sequelize";
 
 const eventRoutes = express.Router();
 
@@ -114,7 +115,12 @@ eventRoutes.get("/api/eventsByType/:type", async (req: Request, res: Response) =
     try {
         const eventType: string = req.params.type;
         let events: Event[] = await Event.findAll({
-            where: {eventType: eventType},
+            where: {
+                eventType: eventType,
+                eventDate:{
+                    [Op.gt]: new Date()
+                }
+            },
             order: [
                 ["eventDate", "ASC"]
             ]
