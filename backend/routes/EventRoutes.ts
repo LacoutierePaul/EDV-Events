@@ -112,7 +112,7 @@ eventRoutes.get("/api/events/:id", async (req: Request, res: Response) => {
  */
 eventRoutes.get("/api/eventsByType/:type", async (req: Request, res: Response) => {
     try {
-        let eventType = +req.params.type;
+        const eventType: string = req.params.type;
         let events: Event[] = await Event.findAll({
             where: {eventType: eventType},
             order: [
