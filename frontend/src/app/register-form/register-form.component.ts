@@ -7,4 +7,21 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent {
+
+  registerForm: FormGroup;
+
+  constructor(formBuilder: FormBuilder) {
+    this.registerForm = formBuilder.group(
+      {
+        lastName: ['', Validators.required],
+        firstName: ['', Validators.required],
+        email: ['', Validators.required],
+        password: ['', Validators.required],
+        school: ['', Validators.required]
+      }
+    )
+  }
+
+
+
 }
