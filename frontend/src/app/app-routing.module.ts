@@ -6,6 +6,7 @@ import {ConnectionPageComponent} from "./pages/connection-page/connection-page.c
 import {TournamentsComponent} from "./pages/tournaments/tournaments.component";
 import {TrainingsComponent} from "./pages/trainings/trainings.component";
 import {OtherEventsComponent} from "./pages/other-events/other-events.component";
+import {CreateEventComponent} from "./pages/create-event/create-event.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'connection', component: ConnectionPageComponent},
   {path: 'tournaments', component: TournamentsComponent},
   {path: 'trainings', component: TrainingsComponent},
-  {path: 'other-events', component: OtherEventsComponent}
+  {path: 'other-events', component: OtherEventsComponent},
+  {path: 'create-event', component: CreateEventComponent}
 ];
 
 @NgModule({
