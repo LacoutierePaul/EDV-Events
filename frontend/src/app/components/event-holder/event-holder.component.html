@@ -1,9 +1,13 @@
 <div class="event-holder">
   <div class="event-info">
-    <p style="font-size: 35px; font-weight: 500; line-height: 1">{{event.eventTitle}}</p>
+    <p style="font-size: 35px; font-weight: 500; line-height: 1" *ngIf="event.eventTitle.length !== 0">
+      {{event.eventTitle}}
+    </p>
     <p style="font-size: 22px; font-weight: 500; margin-top: 5px">{{event.eventDate | date:'dd/MM/yyyy'}}</p>
     <p style="font-size: 20px; font-weight: 500">Lieu : {{event.eventLocation}}</p>
-    <p style="font-size: 17px; font-weight: 500">{{event.eventDescription}}</p>
+    <p style="font-size: 17px; font-weight: 500" *ngIf="event.eventDescription?.length !== 0">
+      {{event.eventDescription}}
+    </p>
   </div>
   <button class="register-button" mat-button>Je m'inscris</button>
 </div>
