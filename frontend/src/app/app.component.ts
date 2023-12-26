@@ -5,7 +5,7 @@ export interface Event {
   eventType:string;
   eventTitle: string;
   eventLocation: string;
-  eventDescription?: string;
+  eventDescription: string;
   eventDate: Date;
   eventLimit: number;
 }
