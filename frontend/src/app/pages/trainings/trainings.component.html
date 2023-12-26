@@ -1,1 +1,7 @@
-<p>trainings works!</p>
+<div class="events">
+  <div class="event-list">
+    <h1 class="upcoming-trainings">Entraînements à venir</h1>
+    <app-event-holder *ngFor="let training of trainingsList" [event]="training"></app-event-holder>
+  </div>
+  <img src="../../../assets/joueur_foot.png" style="max-width: 100%; max-height: 100%">
+</div>

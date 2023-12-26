@@ -1,0 +1,28 @@
+.events {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 60px;
+  font-family: "Century Gothic",sans-serif;
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  max-width: 800px;
+  color: white;
+  row-gap: 15px;
+}
+
+.upcoming-trainings {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.description {
+  font-weight: bold;
+  font-size: 20px;
+}
