@@ -21,8 +21,8 @@
     font-size: 1.5vw; /* Responsive font size based on viewport width */
     font-family: 'Century Gothic', sans-serif;
     font-weight: 500;
-    word-wrap: break-word;
     cursor: pointer;
+    text-wrap: none;
 }
 
 .nav-item {
