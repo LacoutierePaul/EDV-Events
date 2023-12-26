@@ -84,6 +84,51 @@ eventRoutes.get("/api/events/:id", async (req: Request, res: Response) => {
 
 /**
  * @openapi
+ * /api/eventsByType/{eventType}:
+ *   get:
+ *     summary: Get an event by its type.
+ *     description: Retrieve an event based on its type.
+ *     tags:
+ *       - Events
+ *     parameters:
+ *       - in: path
+ *         name: eventType
+ *         description: The type of the event to retrieve.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: An array of events with the specified type.
+ *         content:
+ *             application/json:
+ *               schema:
+ *                 type: array
+ *                 items:
+ *                   $ref: '#/components/schemas/Event'
+ *       '500':
+ *         description: Unable to find the events by the specified type
+ *
+ */
+eventRoutes.get("/api/eventsByType/:type", async (req: Request, res: Response) => {
+    try {
+        let eventType = +req.params.type;
+        let events: Event[] = await Event.findAll({
+            where: {eventType: eventType},
+            order: [
+                ["eventDate", "ASC"]
+            ]
+        });
+        res.status(200).send(events);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
+
+
+/**
+ * @openapi
  * /api/events:
  *   post:
  *     summary: Create a new event.
