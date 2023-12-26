@@ -17,6 +17,13 @@ import { EventHolderComponent } from './components/event-holder/event-holder.com
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import { OtherEventsComponent } from './pages/other-events/other-events.component';
+import { CreateEventComponent } from './pages/create-event/create-event.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core"
 
 @NgModule({
   declarations: [
@@ -30,7 +37,8 @@ import { OtherEventsComponent } from './pages/other-events/other-events.componen
     ConnectionFormComponent,
     RegisterFormComponent,
     EventHolderComponent,
-    OtherEventsComponent
+    OtherEventsComponent,
+    CreateEventComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,13 @@ import { OtherEventsComponent } from './pages/other-events/other-events.componen
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    NgbModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
