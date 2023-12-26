@@ -14,10 +14,10 @@ export class TrainingsComponent implements OnInit{
   constructor(private httpClient: HttpClient){}
 
   ngOnInit(): void {
-    this.getTournaments();
+    this.getTrainings();
   }
 
-  getTournaments(){
+  getTrainings(){
     this.httpClient.get<Event[]>("/api/eventsByType/Training").subscribe({
       next: (res: Event[]) => {
         this.trainingsList = res;
