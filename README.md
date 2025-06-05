@@ -38,6 +38,7 @@ Créer une plateforme pour :
 - Authentification par rôles
 - Design responsive fidèle à l’identité graphique de l’association
 
+
 ---
 
 ## 🧠 Organisation & collaboration
@@ -59,6 +60,22 @@ Créer une plateforme pour :
 | Création d’événements | Admin         |
 
 ---
+
+## Screnshoot de l'application
+
+### Documentation Swagger pour le backend
+![Swagger](https://github.com/user-attachments/assets/3dde6cca-6389-42b9-b14e-7e6fbb964230)
+
+### Page de Garde 
+![PageDeGarde](https://github.com/user-attachments/assets/ccca7150-5c62-40d0-9832-03125e54c8f3)
+
+### Page Tournoi
+![Tournoi](https://github.com/user-attachments/assets/ee6fc729-f3b6-417a-90ec-89cae89cd0b3) 
+
+### Page Training et Event
+![Traiing et Event](https://github.com/user-attachments/assets/75efcd59-56b5-4d67-b745-46cae4a42d7d)
+
+### 
 
 
 ## 👥 Auteurs
